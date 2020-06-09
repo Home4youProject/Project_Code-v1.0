@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block content %}
+    
+
+
+    <div class="content-section">
+
+
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Επιλέξτε Αποδοχή ή Απόρριψη Αιτήματος :</legend>
+                
+
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+            <div class="form-group">
+                {{ form.submit2(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+
+{% endblock content %}
+
+

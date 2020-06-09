@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+      <form method="POST" action="">
+          {{ form.hidden_tag() }}
+          <fieldset class="form-group">
+              <legend class="border-bottom mb-4">Επιλέξτε τη κράτηση που θέλετε να επεξεργαστείτε  :</legend>
+              <div class="media">
+                  <div class="media-body">
+                  <table align='center' border='2' width='80%'>
+                      <tr>
+                          <th class="text-secondary">Πελάτης</th>
+                          <th class="text-secondary">Όνομα Σπιτιού</th>
+                      </tr>
+                      {% for request in requests %}
+                          {% for house in houses %}
+                              <tr>
+                                  {% if request.req_house==house.id %}
+                                      <th class="text-secondary">{{request.req_sender}}</th>
+                                      <th class="text-secondary"><a class="mr-2" href="{{ url_for('accept_request', request_id=request.id) }}">{{house.house_name}}</a></th>
+                                  {% endif %}
+                              </tr>
+                          {% endfor %}
+                      {% endfor %}
+                     </table>
+                     <br>
+                     <br>
+                     <br>
+                     <table align='center' border='2' width='80%'>
+                        <legend class="border-bottom mb-4">Λίστα μηνυμάτων  :</legend>
+                        <tr>
+                            <th class="text-secondary">Μήνυμα</th>
+                            <th class="text-secondary">Από τον Χρήστη</th>
+                        </tr>
+                        {% for message in messages %}
+                            <tr>
+                                    {% if message.auto_type %}
+                                        <th class="text-secondary">{{message.auto_type}}</th>
+                                    {% else %}
+                                        <th class="text-secondary">{{message.message}}</th>
+                                        {% if message.sender==0 %}
+                                            <th class="text-secondary">Διαχειριστής</th>
+                                        {% endif %}
+                                    {% endif %}
+                                    {% for user in users %}
+                                        {% if user.id==message.sender %}
+                                            <th class="text-secondary"><a class="mr-2" href="{{ url_for('check_profile', user_id=user.id) }}">{{user.username}}</a></th>
+                                        {% endif %}
+                                    {% endfor %}
+                                </tr>
+                        {% endfor %}
+                    </table>
+                    </div>
+                  </div>
+               </fieldset>
+        </form>
+    </div>
+
+{% endblock content %}

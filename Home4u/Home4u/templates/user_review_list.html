@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+      
+        
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Επιλέξτε το id του σπιτιού που θέλετε να αξιολογήσετε :</legend>
+                <div class="media">
+        
+                    <div class="media-body">
+                     <table align='center' border='2' width='80%'>
+                        <tr>
+                            <th class="text-secondary">Όνομα Σπιτιού</th>
+                            <th class="text-secondary">Πόλη</th>
+
+
+                        </tr>
+                         {% for r in req %}
+
+                            {% for home in homes %}
+                                
+                                    <tr>
+                                        {% if home.id==r.req_house %}
+                                            <th class="text-secondary"><a class="mr-2" href="{{ url_for('user_review', home_id=home.id) }}">{{home.house_name}}</a></th>
+                                            
+                                            <th class="text-secondary">{{home.city}}</th>
+                                         
+                                        {% endif %}
+                                    </tr>
+                                
+                            {% endfor %}
+                        {% endfor %}
+                     </table>
+                    </div>
+                  </div>
+                  
+                
+            </fieldset>
+           
+        </form>
+    </div>
+    
+{% endblock content %}

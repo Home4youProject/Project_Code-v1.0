@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+      <div class="media">
+        <img class="rounded-circle account-img" src="{{ image_file }}">
+        <div class="media-body">
+          <h2 class="account-heading">{{ current_user.username }}</h2>
+          <p class="text-secondary">{{ current_user.email }}</p>
+          {% if current_user.review_num>0 %}
+            <p class="text-secondary"><a class="mr-2" href="{{ url_for('ratings', user_id=current_user.id) }}">{{ "%.2f"|format(current_user.reviews/current_user.review_num) }}/5 </a> &bigstar;</p> 
+
+
+          {% endif %}
+        </div>
+      </div>
+        <form method="POST" action="" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Account Info</legend>
+                <div class="form-group">
+                    <h5>{{ form.username.label(class="form-control-label") }} </h5>
+
+                    <p> {{current_user.username}} </p>
+
+
+                </div>
+                <div class="form-group">
+                    <h5>{{ form.email.label(class="form-control-label") }} </h5>
+
+                    <p> {{current_user.email}} </p>
+
+                </div>
+               <div class="form-group">
+                    <h5>{{ form.phone.label(class="form-control-label") }} </h5>
+
+                    <p> {{current_user.phone}} </p>
+
+
+
+                </div>
+                <div class="form-group">
+                    <h5>{{ form.birth_date.label(class="form-control-label") }} </h5>
+
+
+                    <p> {{current_user.birth_date.date()}} </p>
+
+                </div>
+                 <div class="form-group">
+                    <h5>{{ form.firstname.label(class="form-control-label") }}  </h5>
+
+
+                    <p> {{current_user.firstname}} </p>
+
+                </div>
+                <div class="form-group">
+                    <h5>{{ form.surname.label(class="form-control-label") }} </h5>
+
+
+                    <p> {{current_user.surname}} </p>
+
+                </div>
+                <div class="form-group">
+                    <h5>{{ form.balance.label(class="form-control-label") }} </h5>
+
+
+                    <p> {{current_user.balance}} </p>
+
+                </div>
+                <div class="form-group">
+                    <h5>{{ form.sex.label(class="form-control-label") }} </h5>
+
+
+                    <p> {{current_user.sex}} </p>
+
+                </div>
+
+
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+{% endblock content %}

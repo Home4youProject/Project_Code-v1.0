@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+      
+        
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Επιλέξτε το id του χρήστη που θέλετε να αξιολογήσετε :</legend>
+                <div class="media">
+        
+                    <div class="media-body">
+                     <table align='center' border='2' width='80%'>
+                        <tr>
+                            <th class="text-secondary">Όνομα Χρήστη</th>
+                            <th class="text-secondary">Email Χρήστη</th>
+
+
+                        </tr>
+                        {% for r in req %}
+
+                            {% for user in users %}
+                                
+                                    <tr>
+                                        {% if user.username==r.req_sender %}
+                                            <th class="text-secondary"><a class="mr-2" href="{{ url_for('owner_review', user_id=user.id) }}">{{user.username}}</a></th>
+                                            
+                                            <th class="text-secondary">{{user.email}}</th>
+                                         
+                                        {% endif %}
+                                    </tr>
+                                
+                            {% endfor %}
+                        {% endfor %}
+                        
+                     </table>
+                    </div>
+                  </div>
+                 
+                
+            </fieldset>
+            
+        </form>
+    </div>
+    
+{% endblock content %}

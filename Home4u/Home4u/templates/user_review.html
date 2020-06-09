@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Add your review</h1>
+<div class="content-section">
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Προσθέστε την αξιολόγηση σας :</legend>
+            <div class="media">
+                <div class="media-body">
+                 <h2>{{house_review.house_name}}</h2>
+                 <div class="form-group">
+                    {{ form.stars.label(class="form-control-label") }} 
+                    {{ form.stars(class="form-control form-control-lg") }}
+                 </div>
+                <div class="form-group">
+                    {{ form.comments.label(class="form-control-label") }}
+                    {{ form.comments(class="form-control form-control-lg", placeholder='Γράψτε ένα σχόλιο') }}
+                </div>
+                </div>
+              </div>
+
+        </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+
+{% endblock content %}

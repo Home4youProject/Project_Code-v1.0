@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+
+                <div class="media">
+
+                    <div class="media-body">
+                     <table align='center' border='2' width='80%'>
+                        <tr>
+                            <th class="text-secondary">Από χρήστη</th>
+                            <th class="text-secondary">Βαθμολογία</th>
+                            <th class="text-secondary">Σχόλια</th>
+
+
+                        </tr>
+
+
+                            {% for review in reviews %}
+                                {% for usr in users %}
+                                    <tr>
+                                        {% if usr.id==review.reviewer %}
+                                            <th class="text-secondary"><a class="mr-2" href="{{ url_for('check_profile', user_id=usr.id) }}">{{usr.username}}</a></th>
+
+                                            <th class="text-secondary">{{review.stars }} &bigstar;</th>
+
+                                            <th class="text-secondary">{{review.comments}}</th>
+
+                                        {% endif %}
+                                    </tr>
+                                    {% endfor %}
+                            {% endfor %}
+
+                     </table>
+                    </div>
+                  </div>
+
+
+
+    </div>
+
+{% endblock content %}

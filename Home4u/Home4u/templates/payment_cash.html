@@ -1,0 +1,22 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="content-section">
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+
+            <legend class="border-bottom mb-4">Επιβεβαίωση Πληρωμής</legend>
+            <p>Η τιμή του σπιτιού είναι: {{house1.price}}</p>
+
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+    </form>
+</div>
+<div class="border-top pt-3">
+        <small class="text-muted">
+           Αλλαγή τρόπου πληρωμής:<a class="ml-2" href="{{ url_for('payment_method', house_id=house1.id) }}">Κλικ εδώ</a>
+        </small>
+    </div>
+{% endblock content %}

@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block content %}
+    
+
+
+    <div class="content-section">
+
+
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Επιλέξτε Αποδοχή ή Διαγραφή Αναφοράς :</legend>
+                <div> Περιγραφή των λόγων αναφοράς για το κατάλυμα <a  href="{{ url_for('house_info_admin', house_id=delete_house.id) }}">{{delete_house.house_name}}</a>  : </div>
+
+                {{report.comments}}
+                
+
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+            <div class="form-group">
+                {{ form.submit2(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+
+{% endblock content %}
+
+

@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Πατήστε στο σπίτι που θέλετε να επεξεργαστείτε:</legend>
+                <div class="media">
+                    <div class="media-body">
+                     <table align='center' border='2' width='80%'>
+                        <tr>
+                            <th class="text-secondary">Όνομα Σπιτιού</th>
+                            <th class="text-secondary">Πόλη</th>
+                            
+                        </tr>
+                        {% for house in houses %}
+                                <tr>
+                                 <th class="text-secondary"><a class="mr-2" href="{{ url_for('edit_house', house_id=house.id) }}">{{house.house_name}}</a></th>
+                                 <th class="text-secondary">{{house.city}}</th>
+                                </tr>
+                        {% endfor %}
+                     </table>
+                    </div>
+                  </div>
+                  <br>
+                  <br>
+            </fieldset>
+    </div>
+{% endblock content %}

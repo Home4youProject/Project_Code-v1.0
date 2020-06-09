@@ -1,0 +1,144 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Insert your House Info</legend>
+                <div class="form-group">
+                   {{ form.house_name.label(class="form-control-label") }}
+                    {% if form.house_name.errors %}
+                        {{ form.house_name(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.house_name.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.house_name(class="form-control form-control-lg", placeholder='Όνομα σπιτιού που βλέπουν οι χρήστες') }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                   {{ form.city.label(class="form-control-label") }}
+                    {% if form.city.errors %}
+                        {{ form.city(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.city.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.city(class="form-control form-control-lg", placeholder='Η πόλη που βρίσκετε το σπίτι') }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.postal_code.label(class="form-control-label") }}
+
+                    {% if form.postal_code.errors %}
+                        {{ form.postal_code(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.postal_code.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.postal_code(class="form-control form-control-lg", placeholder='ΤΚ περιοχής') }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.address.label(class="form-control-label") }}
+
+                    {% if form.address.errors %}
+                        {{ form.address(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.address.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.address(class="form-control form-control-lg", placeholder='Διεύθυνση σπιτιού') }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.square_meters.label(class="form-control-label") }}
+
+                    {% if form.square_meters.errors %}
+                        {{ form.square_meters(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.square_meters.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.square_meters(class="form-control form-control-lg", placeholder='ΤΜ σπιτιού') }}
+                    {% endif %}
+                </div>
+                 <div class="form-group">
+                    {{ form.price.label(class="form-control-label") }}
+
+                    {% if form.price.errors %}
+                        {{ form.price(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.price.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.price(class="form-control form-control-lg", placeholder='Συνολική τιμή σπιτιού') }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.house_type.label(class="form-control-label") }}
+
+                    {% if form.house_type.errors %}
+                        {{ form.house_type(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.house_type.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.house_type(class="form-control form-control-lg", placeholder='Γκαρσονιέρα, Μονοκατοικία') }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.available_from.label(class="form-control-label") }}
+
+                    {% if form.available_from.errors %}
+                        {{ form.available_from(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.available_from.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.available_from(class="form-control form-control-lg")}}
+                    {% endif %}
+                </div>
+                <div class="form-check">
+                    {{ form.availability(class="form-check-input") }}
+                    {{ form.availability.label(class="form-check-label") }}
+                </div>
+                <br>
+               <div class="form-group">
+                    {{ form.visitors.label(class="form-control-label") }}
+
+                    {% if form.visitors.errors %}
+                        {{ form.visitors(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.visitors.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.visitors(class="form-control form-control-lg", placeholder='Αριθμός επισκεπτών') }}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+   
+{% endblock content %}

@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+<legend class="border-bottom mb-4">Communication</legend>
+    <h3>Επιλέξτε τρόπο επικοινωνίας</h3>
+<br>
+<form method="get" action="/auto_message">
+    <button type="submit">Αυτοματοποιημένο μήνυμα</button>
+</form>
+<br>
+  <form method="get" action="/write_message">
+      <button type="submit">Γραπτό μήνυμα</button>
+  </form>
+<br>
+  <form method="get" action="#">
+      <button type="submit">Άμεση κλήση</button>
+      <small class="text-muted">
+            Η άμεση κλήση είναι μάλλον πολύ φιλόδοξη για τα πλαίσια ενός ακαδημαικού project 😆
+        </small>
+  </form>
+
+
+{% endblock content %}

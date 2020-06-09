@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h1>Find the perfect Home for You :)</h1>
+  <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Παρακαλώ Συμπληρώστε την Φόρμα</legend>
+
+                <div class="form-group">
+                    {{ form.location.label(class="form-control-label") }}
+
+
+                    {{ form.location(class="form-control form-control-lg", placeholder='Εισάγεται τη πόλη προορισμό') }}
+
+                </div>
+                <div class="form-group">
+                    {{ form.arrival_date.label(class="form-control-label") }}
+
+
+                    {{ form.arrival_date(class="form-control form-control-lg") }}
+
+                </div>
+                <div class="form-group">
+                    {{ form.guests.label(class="form-control-label") }}
+
+
+                    {{ form.guests(class="form-control form-control-lg", placeholder='Εισάγεται τον αριθμό των επισκεπτών') }}
+
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+  </div>
+{% endblock content %}

@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+<form method="POST" action="">
+    {{ form.hidden_tag() }}
+    <legend class="border-bottom mb-4">Επιλέξτε τρόπο πληρωμής</legend>
+    <div class="form-group">
+                    {{ form.payment_type.label(class="form-control-label") }}
+
+
+                    {{ form.payment_type(class="form-control form-control-lg") }}
+
+    </div>
+
+    <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+    </div>
+
+</form>
+{% endblock content %}

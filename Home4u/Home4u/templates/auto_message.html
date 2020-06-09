@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Επιλέξτε μια απο τις παρακάτω επιλογές </legend>
+                <div class="form-group">
+                    {{ form.select_type.label(class="form-control-label") }}
+
+
+                    {{ form.select_type(class="form-control form-control-lg") }}
+
+                </div>
+                <br>
+                <div class="form-group">
+                    {{ form.receiver.label(class="form-control-label") }}
+
+
+                    {{ form.receiver(class="form-control form-control-lg", placeholder='Εισάγεται το username του παραλήπτη') }}
+
+                </div>
+          </fieldset>
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-outline-info") }}
+                </div>
+          </form>
+        </div>
+{% endblock content %}

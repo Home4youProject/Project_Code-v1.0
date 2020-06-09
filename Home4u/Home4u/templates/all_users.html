@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+    <legend>Συνολικά βρέθηκαν {{ count }} χρήστες</legend>
+    {% for user in users %}
+      <a href="{{ url_for('check_profile', user_id=user.id) }}">{{user.username}}</a><br>
+    {% endfor %}
+    </div>
+{% endblock content %}

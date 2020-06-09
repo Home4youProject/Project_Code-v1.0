@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section">
+
+<legend> Πατήστε στο σπίτι που θέλετε να ενοικιάσετε</legend>
+   <form method="POST" action="">
+
+   	 <fieldset class="form-group">
+     <table align='center' border='2' width='80%'>
+                        <tr>
+
+                            <th class="text-secondary">Όνομα Σπιτιού</th>
+                            <th class="text-secondary">Τιμή Σπιτιού</th>
+                            <th class="text-secondary">Βαθμολογία</th>
+
+
+                        </tr>
+                        {% for searched_house in searched_houses %}
+
+                                <tr>
+                                    <th class="text-secondary"><a class="mr-2" href="{{ url_for('house_info', house_id=searched_house.id) }}">{{searched_house.house_name}}</a></th>
+                                    <br>
+                                    <th class="text-secondary">{{searched_house.price}}</th>
+                                    {% if searched_house.review_num>0 %}
+
+                                        <th class="text-secondary">{{"%.2f"|format(searched_house.reviews/searched_house.review_num) }}/5 &bigstar;</th>
+
+                                    {% else %}
+                                        <th class="text-secondary">Δεν έχει</th>
+                                    {% endif %}
+
+
+
+                                </tr>
+
+                        {% endfor %}
+     </table>
+
+
+            </fieldset>
+
+    </form>
+   </div>
+{% endblock content %}

@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Πατήστε στο σπίτι που θέλετε να επεξεργαστείτε:</legend>
+                <div class="media">
+                    <div class="media-body">
+                     <table align='center' border='2' width='80%'>
+                        <tr>
+                            <th class="text-secondary">Id Αναφοράς</th>
+                            <th class="text-secondary">Όνομα Σπιτιού</th>
+                        </tr>
+                        {% for report in report_list %}
+                          {% for house in houses %}
+                                <tr>
+                                  {% if report.house_id==house.id %}
+                                        
+                                        <th class="text-secondary">{{report.id}}</th>
+                                        <th class="text-secondary"><a class="mr-2" href="{{ url_for('confirm_report', report_id=report.id) }}">{{house.house_name}}</a></th>
+
+                                  {% endif %}
+                          {% endfor %}
+                        {% endfor %}
+                     </table>
+                    </div>
+                  </div>
+                  <br>
+                  <br>
+            </fieldset>
+    </div>
+{% endblock content %}

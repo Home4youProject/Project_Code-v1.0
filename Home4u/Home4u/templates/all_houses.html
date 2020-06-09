@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+      <legend>Συνολικά βρέθηκαν {{ count }} σπίτια</legend>
+    {% for house in houses %}
+      <a href="{{ url_for('house_info', house_id=house.id) }}">{{house.house_name}}</a><br>
+    {% endfor %}
+    </div>
+{% endblock content %}
